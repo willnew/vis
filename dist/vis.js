@@ -32,8 +32,10 @@
 		define([], factory);
 	else if(typeof exports === 'object')
 		exports["vis"] = factory();
-	else
+	else if (root)
 		root["vis"] = factory();
+  else
+    window["vis"] = factory();
 })(this, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -9831,7 +9833,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 13 */
 /***/ function(module, exports) {
 
-  
+
   /**
    * Expose `Emitter`.
    */
@@ -17253,7 +17255,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
   /**
    * used in Core to convert the options into a volatile variable
-   * 
+   *
    * @param {function} moment
    * @param {Object} body
    * @param {Array | Object} hiddenDates
@@ -29149,7 +29151,7 @@ return /******/ (function(modules) { // webpackBootstrap
       }
 
       /**
-       * @param {string} url                      The Url to cache the image as 
+       * @param {string} url                      The Url to cache the image as
         * @return {Image} imageToLoadBrokenUrlOn  The image object
        */
 
@@ -29216,7 +29218,7 @@ return /******/ (function(modules) { // webpackBootstrap
           value: function load(url, brokenUrl, id) {
               var _this2 = this;
 
-              //Try and get the image from the cache, if successful then return the cached image  
+              //Try and get the image from the cache, if successful then return the cached image
               var cachedImage = this.images[url];
               if (cachedImage) return cachedImage;
 
